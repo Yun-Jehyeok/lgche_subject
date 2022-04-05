@@ -1,0 +1,107 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="posts" type="List" default="[]" />
+    <aura:attribute name="filteredPosts" type="List" default="[]" />
+    <aura:attribute name="testArr" type="List" default="[]" />
+    <aura:attribute name="isHidedNavShow" type="Boolean" default="false" />
+    <aura:attribute name="categoryList" type="List" default="['전체', '제품/시장 뉴스', '프로모션', '카탈로그', '전문자료']" />
+    <aura:attribute name="selectedCategory" type="String" default="전체" />
+
+    <!-- Pagination -->
+    <aura:attribute name="test" type="List" default="[1, 2, 3, 4, 5]" />
+
+    <aura:attribute name="currentPageGroup" type="Integer" />
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="firstPage" type="Integer" />
+    <aura:attribute name="lastPage" type="Integer" />
+    <aura:attribute name="totalPage" type="Integer" />
+
+    <aura:handler name="init" value="{! this }" action="{! c.initPosts }" />
+
+    <div>
+        <!-- Hided Nav Bar -->
+        <div class="{! v.isHidedNavShow ? 'sticky-tab hided-fixed' : 'sticky-tab' }">
+            <div class="over-sticky-tab"></div>
+            <div>
+                <div class="sticky-tab-left">
+                    <aura:iteration items="{! v.categoryList }" var="category">
+                        <div class="sticky-tab-item">
+                            <a href="" name="{! category }" class="{! v.selectedCategory == category ? 'is-white' : '' }" onclick="{! c.isClickedCategory }">{! category }</a>
+                        </div>
+                    </aura:iteration>
+                </div>
+                <div class="sticky-tab-right">
+                    <input placeholder="Please enter a search term" />
+                    <div>
+                        <img src="{! $Resource.images + '/ico-search.svg' }" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contents -->
+        <div class="container">
+            <div>
+                <div class="trend">
+                    <div class="trend-label slds-m-bottom_x-large">트렌드</div>
+                    <c:Slider />
+                </div>
+                <div class="item-list">
+                    <div class="item-list-header">
+                        <div class="item-list-nav">
+                            <aura:iteration items="{! v.categoryList }" var="category">
+                                <div>
+                                    <a href="" name="{! category }" class="{! v.selectedCategory == category ? 'is-black' : '' }" onclick="{! c.isClickedCategory }">{! category }</a>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                        <div class="item-list-input">
+                            <input placeholder="Please enter a search term" />
+                            <div>
+                                <lightning:icon class="search-icon" iconName="utility:search" size="x-small" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap post-list">
+                        <aura:if isTrue="{! v.filteredPosts.length > 0 }">
+                            <aura:iteration items="{! v.filteredPosts }" var="post">
+                                <c:PostItem post="{! post }" />
+                            </aura:iteration>
+
+                            <aura:set attribute="else">
+                                <div style="width: 100%; height: 320px; margin-bottom: 40px; display: flex; flex-direction: column; flex: 0 0 auto; justify-content: center; align-items: center; background-color: #fafbfd;">
+                                    <img src="{! $Resource.noSearch }" style="width: 80px; height: 80px;" />
+                                    <div style="font-size: 24px; margin: 24px 0 12px 0; ">다시 입력해주세요.</div>
+                                    <div style="font-size: 15px;">검색어에 맞는 내용이 존재하지 않습니다.</div>
+                                </div>
+                            </aura:set>
+                        </aura:if>
+                     </div>
+                     <div class="pager">
+                        <button type="button" class="{!v.isFirstPage ? 'firstPage disable' : 'firstPage'}" title="첫페이지 이동" onclick="{!c.changePage}" value="first">First Page</button>
+                        <button type="button" class="{!v.isFirstPage ? 'prevPage disable' : 'prevPage'}" title="이전 페이지 이동" onclick="{!c.changePage}" value="prev">Prev Page</button>
+                        <!-- <aura:iteration items="{!v.displayedPages}" var="item">
+                            <a class="{!item == v.currentPage ? 'active' : ''}"
+                                title="{!item == v.currentPage ? '현재 선택된 페이지' : item + '페이지 이동'}"
+                                onclick="{!c.changePage}"
+                                value="{!item}">
+                                <aura:if isTrue="{! 10 > item}">
+                                    {!'0' + item}
+                                    <aura:set attribute="else">
+                                    {!item}
+                                    </aura:set>
+                                </aura:if>
+                            </a>
+                        </aura:iteration> -->
+                        <aura:iteration items="{! v.test }" var="item">
+                            <a>
+                                {! item }
+                            </a>
+                        </aura:iteration>
+                        <button type="button" class="{!v.isLastPage ? 'nextPage disable' : 'nextPage'}" title="다음 페이지 이동" onclick="{!c.changePage}" value="next">Next Page</button>
+                        <button type="button" class="{!v.isLastPage ? 'lastPage disable' : 'lastPage'}" title="마지막 페이지 이동" onclick="{!c.changePage}" value="last">Last Page</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>	

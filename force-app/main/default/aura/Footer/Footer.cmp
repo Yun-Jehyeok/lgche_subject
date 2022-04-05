@@ -1,0 +1,77 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="isOpen" type="Boolean" default="false" />
+
+    <div>
+        <div class="container">
+            <div class="wrap">
+                <div class="footer-top">
+                    <span>
+                        <a href="">                 
+                            개인정보처리방침
+                        </a>
+                    </span>
+                    <span class="before-span">
+                        <a href="">                 
+                            개인정보처리문의
+                        </a>
+                    </span>
+                    <span class="before-span">
+                        <a href="">                 
+                            이용약관
+                        </a>
+                    </span>
+                    <span class="before-span">
+                        <a href="">                 
+                            이메일 무단 수집 거부
+                        </a>
+                    </span>
+                    <span class="before-span">
+                        <a href="">                 
+                            문의하기
+                        </a>
+                    </span>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom-left">
+                        <div>대표이사 : <span class="highlight-span">신학철</span></div>
+                        <div>사업자등록번호 : <span class="highlight-span">101-81-98139</span><span class="before-span">대표번호 : <span class="highlight-span">02-3773-1114</span></span></div>
+                        <div>07336 서울특별시 영등포구 여의대로 128 LG트윈타워</div>
+                        <br />
+                        <div class="copyright">&copy;LG Chem. All Rights Reserved.</div>
+                    </div>
+                    <div>
+                        <div class="slds-m-bottom_large select-box" >
+                            <div class="{! v.isOpen ? 'slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open' : 'slds-dropdown-trigger slds-dropdown-trigger_click slds-is-close' }">
+                                <div class="{! v.isOpen ? 'slds-button button-active' : 'slds-button'}" onclick="{! c.isClickedFooterDropdown }">
+                                    <div>EM</div>
+                                    <lightning:icon class="up-arrow" iconName="utility:up" size="xx-small" />
+                                </div>
+                                <div class="slds-dropdown slds-dropdown_bottom slds-dropdown_right">
+                                    <div>홈</div>
+                                    <div class="dropdown-contents">
+                                        <div>
+                                            <div>석유화학본부</div>
+                                            <div>NCC 사업부</div>
+                                            <div>P0 사업부</div>
+                                            <div>PVC/가소제 사업부</div>
+                                            <div>ABS 사업부</div>
+                                            <div>아크릴/SAP 사업부</div>
+                                            <div>HPM 사업부</div>
+                                            <div>CNT 사업부</div> 
+                                        </div>
+                                        <div>
+                                            <div>첨단소재사업본부</div>
+                                            <div>EM사업부</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <img src="{! $Resource.images + '/ico-petro.svg' }" class="petro-img" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>	

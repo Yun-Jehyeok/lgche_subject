@@ -1,0 +1,122 @@
+.THIS {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'myFont';
+}
+
+@font-face{
+    font-family: 'myFont';
+    src: url(/resource/myFont/AppleSDGothicNeoB.ttf);
+}
+
+.THIS .container {
+    display: flex; 
+    flex: 0 0 auto; 
+    align-items: center; 
+    width: 1560px;
+}
+
+.THIS .arrow {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    justify-content: center;
+    flex: 0 0 auto;
+    align-items: center;
+    z-index: 99;
+
+    box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
+
+    background-color: white;
+    border: 1px solid #F3F4F6;
+    cursor: pointer;
+}
+
+.THIS .prev {
+    margin-right: 20px;
+}
+
+.THIS .next {
+    margin-left: 20px;
+}
+
+.THIS .arrow-icon {
+    --sds-c-icon-color-foreground-default: black;
+}
+
+.THIS .grid-container {
+    width: 1448px; 
+    overflow-x: hidden; 
+    box-sizing: border-box;
+}
+
+.THIS .grid-container > .slds-grid {
+    width: 100%;
+
+    position: relative;
+    left: -2824px;
+}
+
+.THIS .slds-col {
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+.THIS .slds-card {
+    border-radius: 0; 
+    cursor: pointer;
+}
+
+.THIS .slds-card__header {
+    padding: 0; 
+    width: 100%;
+    height: 456px;
+    overflow: hidden;
+}
+
+.THIS .card-image {
+    width: 100%; 
+    height: 100%;
+    transition: all 0.25s linear;
+}
+
+.THIS .slds-card__body {
+    text-align: start; 
+    padding: 2rem;
+}
+
+.THIS .title {
+    font-size: 1.2rem; 
+    font-weight: bolder;
+}
+
+.THIS .category {
+    display: flex; 
+    margin-top: 1rem;
+}
+
+.THIS .ct-item {
+    height: 24px; 
+    padding: 0 8px; 
+    background-color: #F3F4F6; 
+    color: #757B83; 
+    font-size: 13px; 
+    border: none; 
+    font-weight: bold; 
+    margin-right: 0.25rem;
+}
+.THIS .slds-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.THIS .slds-card:hover .title {
+    text-decoration: underline;
+    color: #DA1047;
+}
+
+.THIS .slds-card:hover {
+    border-color: black;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 14%);
+}

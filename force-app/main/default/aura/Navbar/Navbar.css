@@ -1,0 +1,113 @@
+.THIS {
+    font-family: 'myFont';
+}
+
+@font-face{
+    font-family: 'myFont';
+    src: url(/resource/myFont/AppleSDGothicNeoB.ttf);
+}
+
+.THIS .fixed {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.THIS .container {
+    width: 100%;
+    height: 125px;
+}
+
+.THIS .header-top {
+    width: 100%;
+    height: 80px; 
+    border-bottom: 1px solid #EDEFF2; 
+    display: flex; 
+    justify-content: space-between; 
+    flex: 0 0 auto; 
+    align-items: center; 
+    padding: 0 3rem;
+}
+
+.THIS .logo {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.THIS .navigation {
+    display: flex; 
+    justify-content: space-between; 
+    width: 25%; 
+}
+
+.THIS .navigation > div {
+    font-weight: bold;
+    color: #222222;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.THIS .navigation > div:hover {
+    color: #DA1047;
+}
+
+.THIS .buttons {
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.THIS .buttons .slds-dropdown {
+    margin-top: 1rem;
+}
+
+.THIS .buttons .slds-dropdown:after {
+    content: '';
+    position: absolute;
+    top: -4%;
+    left: 88%;
+    margin-left: -7px;
+    display: block;
+    width: 12px;
+    height: 12px;
+    box-shadow: 1px 1px 0 #e3e3e3;
+    background-color: white;
+    transform: rotate(225deg);
+}
+
+.THIS .slds-dropdown__item:hover > a {
+    background-color: white;
+    color: #A50034;
+}
+
+.THIS .header-bottom {
+    width: 100%;
+    height: 45px;
+    display: flex; 
+    justify-content: space-between; 
+    flex: 0 0 auto; 
+    align-items: center; 
+    padding: 0 3rem;
+    background-color: white;
+}
+
+.THIS .header-bottom-right {
+    display: flex;
+}
+
+.THIS .header-bottom-right > div {
+    margin-right: 20px; 
+    font-size: 13px; 
+    color: #616366;
+}
+
+.THIS .header-bottom-right > div:last-child {
+    font-size: 13px; 
+    color: #616366;
+}
+
+.THIS .header-bottom-right img {
+    width: 24px;
+    height: 24px;
+}

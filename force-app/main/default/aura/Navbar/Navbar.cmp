@@ -1,0 +1,81 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="isOpen" type="Boolean" default="false" />
+    <aura:attribute name="isScroll" type="Boolean" default="false" />
+    <aura:attribute name="isHidedNavShow" type="Boolean" default="false" />
+
+    <div>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="">
+                        <img src="{! $Resource.images + '/logo-em.svg' }" style="height: 40px;" />
+                    </a>
+                </div>
+                <div class="navigation">
+                    <div>산업군</div>
+                    <div>제품</div>
+                    <div>컬러</div>
+                    <div>콜라보레이션</div>
+                    <div>고객지원</div>
+                    <div>트렌드</div>
+                </div>
+                <div class="buttons">
+                    <a href="">
+                        <img src="{! $Resource.images + '/ico-search.svg' }" />
+                    </a>
+                    <a href="">
+                        <img src="{! $Resource.images + '/ico-user.svg' }" />
+                    </a>
+                    <a href="" class="{! v.isOpen ? 'slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open' : 'slds-dropdown-trigger slds-dropdown-trigger_click slds-is-close' }">
+                        <img src="{! $Resource.images + '/ico-lang.svg' }" onclick="{! c.showDropdown }"/>
+                        <div class="slds-dropdown slds-dropdown_right">
+                            <ul role="menu" class="dropdown__list slds-dropdown__list slds-dropdown_length-with-icon-10" >
+                                <li role="presentation" class="slds-dropdown__item">
+                                    <a role="menuitem" tabindex="-1">
+                                        <span>
+                                            ENG
+                                        </span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="slds-dropdown__item">
+                                    <a role="menuitem" tabindex="-1">
+                                        <span>
+                                            中文
+                                        </span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="slds-dropdown__item">
+                                    <a aria-disabled="true" role="menuitem" tabindex="-1">
+                                        <span>
+                                            한국어
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                    <a href="">
+                        <img src="{! $Resource.images + '/ico-others.svg' }" />
+                    </a>
+                </div>
+            </div>
+            <div class="{! v.isScroll ? 'header-bottom fixed' : 'header-bottom' }">
+                <div><span style="color: gray;">홈</span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;트렌드</div>
+                <div class="header-bottom-right">
+                    <div>
+                        <img src="{! $Resource.images + '/productSearchAll.svg' }" />
+                        제품 물성 검색
+                    </div>
+                    <div>
+                        <img src="{! $Resource.images + '/oemSearchAll.svg' }" />
+                        OEM소재로 검색
+                    </div>
+                    <div>
+                        <img src="{! $Resource.images + '/contactus-bk.svg' }" />
+                        고객문의
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>    
+</aura:component>	

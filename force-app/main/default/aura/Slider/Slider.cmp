@@ -1,0 +1,43 @@
+<aura:component>
+    <aura:attribute name="posts" type="List" default="[]" />
+    <aura:attribute name="is-left" type="Boolean" default="true" />
+    <aura:attribute name="movePx" type="Double" default="-2824" />
+    <aura:attribute name="currentIndex" type="Integer" default="0" />
+
+    <aura:handler name="init" value="{! this }" action="{! c.initPosts }" />
+
+    <div>
+        <div class="container">
+            <button class="arrow prev" id="prev-button" onclick="{! c.onClickPrev }">
+                <lightning:icon class="arrow-icon" iconName="utility:back" size="small" />
+            </button>
+            <div class="grid-container">
+                <div class="slds-grid" id="slider">
+                    <aura:iteration items="{! v.posts }" var="post">
+                        <div class="slds-col slds-size_1-of-3">
+                            <div class="slds-card">
+                                <div class="slds-card__header">
+                                    <img class="card-image" src="{! post.img }" />
+                                </div>
+                                <div class="slds-card__body">
+                                    <div class="title">
+                                        {! post.title }
+                                    </div>
+                                    <div class="category">
+                                        <aura:iteration items="{! post.category }" var="ct">
+                                            <button class="ct-item">{! ct }</button>
+                                        </aura:iteration>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aura:iteration>
+                </div>
+            </div>
+            <button class="arrow next" id="next-button" onclick="{! c.onClickNext }">
+                <lightning:icon class="arrow-icon" iconName="utility:forward" size="small" />
+            </button>
+        </div>
+    </div>
+</aura:component>	
+ 

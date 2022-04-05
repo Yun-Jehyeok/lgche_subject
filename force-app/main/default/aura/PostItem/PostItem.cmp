@@ -1,0 +1,19 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="post" type="Object" default="{}" />
+
+    <div class="slds-col slds-size_1-of-4">
+        <div>
+            <div class="img-container">
+                <img class="post-img" src="{! v.post.img }" alt="" />
+            </div>
+            <div class="post-content slds-p-top_large slds-p-bottom_large">
+                <div class="post-title">{! v.post.title }</div>
+                <div class="post-category">
+                    <aura:iteration items="{! v.post.category }" var="ct">
+                        <button class="post-category-item">{! ct }</button>
+                    </aura:iteration>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>
